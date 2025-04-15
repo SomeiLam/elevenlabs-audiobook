@@ -4,9 +4,10 @@ import { Voice } from '../types'
 
 type Props = {
   onSelect: (voice: Voice) => void
+  selectedVoice: Voice | null
 }
 
-const VoiceList: React.FC<Props> = ({ onSelect }) => {
+const VoiceList: React.FC<Props> = ({ onSelect, selectedVoice }) => {
   const [voices, setVoices] = useState<Voice[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
@@ -51,7 +52,11 @@ const VoiceList: React.FC<Props> = ({ onSelect }) => {
           <li
             key={voice.voice_id}
             onClick={() => onSelect(voice)}
-            className="cursor-pointer p-3 border border-gray-300 rounded hover:bg-gray-100 transition"
+            className={`cursor-pointer p-3 border rounded hover:bg-gray-100 transition ${
+              selectedVoice && selectedVoice.voice_id === voice.voice_id
+                ? 'border-gray-600 border-2'
+                : 'border-gray-300'
+            }`}
           >
             <div className="font-semibold">{voice.name}</div>
             <div className="text-sm text-gray-500">{voice.category}</div>

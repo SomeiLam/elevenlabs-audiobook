@@ -40,7 +40,10 @@ function App() {
   return (
     <>
       <UploadVoice />
-      <VoiceList onSelect={(voice) => setSelectedVoice(voice)} />
+      <VoiceList
+        selectedVoice={selectedVoice}
+        onSelect={(voice) => setSelectedVoice(voice)}
+      />
       {selectedVoice && <TextToSpeech voiceId={selectedVoice.voice_id} />}
     </>
   )
