@@ -1,55 +1,48 @@
-# React + TypeScript + Vite
+# ElevenLabs Audiobook
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application that uses the ElevenLabs API to allow users to upload custom voices, clone them, and generate speech from text using the cloned voices. This project allows users to upload their voice, create instant clones of it, and then generate speech from any text input.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Upload Custom Voice**: Allows users to upload their own voice files to be used for text-to-speech.
+- **Instant Voice Cloning**: Instantly clones uploaded voices and makes them available for text-to-speech generation.
+- **Text to Speech**: Users can type in any text, and the application will generate speech using the selected cloned voice.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React**: The frontend is built using React for a smooth and interactive user experience.
+- **ElevenLabs API**: Used for voice cloning and text-to-speech generation.
+- **TailwindCSS**: Used for styling the application to make it responsive and visually appealing.
+- **Vite**: Used as the development server for fast builds and hot module replacement.
+- **Axios**: For handling API requests to the ElevenLabs API.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation
+
+### Clone the repository
+
+```bash
+git clone https://github.com/your-username/elevenlabs-audiobook.git
+cd elevenlabs-audiobook
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
-# elevenlabs-audiobook
+
+### Run the development server
+
+```bash
+npm run dev
+```
+
+### Usage
+
+- **Upload your voice**: Use the file input to upload your custom voice.
+- **Clone your voice**: Once the voice is uploaded, it will appear in the "Your Instant Voices" section.
+- **Generate Voice**: Type text into the "Text to Speech" section and click "Generate Voice" to hear your cloned voice speak the text.
+
+### License
+
+This project is private and available for personal use. Modify and redistribute as needed.
